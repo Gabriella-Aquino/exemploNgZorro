@@ -7,4 +7,20 @@
     </div>
     <app-input [(value)]="appValue" (submit)="addRaffleItem()"></app-input>
   </div>
+
+  <section class="rafflePanelContainer">
+    <div class="rafflePanel">
+      <p>{{ selectedRaffleItem() || 'O item sorteado aparecerá aqui' }}</p>
+    </div>
+
+    <button
+      nz-button
+      nzType="primary"
+      class="raffleButton"
+      [disabled]="!raffleItems().length"
+      (click)="drawRaffleItem()"
+    >
+      Sortear
+    </button>
+  </section>
 </main>

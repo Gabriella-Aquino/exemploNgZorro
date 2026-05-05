@@ -13,6 +13,7 @@ export class App {
   protected readonly title = signal('testeNgZorro');
   protected readonly appValue = signal('');
   protected readonly raffleItems = signal<string[]>([]);
+  protected readonly selectedRaffleItem = signal('');
 
   protected addRaffleItem(): void {
     const itemName = this.appValue().trim();
@@ -23,5 +24,16 @@ export class App {
 
     this.raffleItems.update((items) => [...items, itemName]);
     this.appValue.set('');
+  }
+
+  protected drawRaffleItem(): void {
+    const items = this.raffleItems();
+
+    if (!items.length) {
+      return;
+    }
+
+    const selectedIndex = Math.floor(Math.random() * items.length);
+    this.selectedRaffleItem.set(items[selectedIndex]);
   }
 }

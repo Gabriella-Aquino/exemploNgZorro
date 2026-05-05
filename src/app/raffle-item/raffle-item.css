@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  list-style: none;
+  border: 1px solid #c7d9e5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #243746;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(36, 55, 70, 0.08);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+li:hover {
+  border-color: #8bb8d1;
+  box-shadow: 0 4px 14px rgba(36, 55, 70, 0.14);
+  transform: translateY(-1px);
+}

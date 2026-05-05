@@ -1,21 +1,88 @@
 .mainConainer {
   display: flex;
+  min-height: 100vh;
   width: 100%;
+  background: #f6f8fb;
+  gap: 24px;
+  padding: 30px 25px;
 }
 
 .listContainer{
   display: flex;
-  width: '100%';
+  width: min(100%, 340px);
   flex-direction: column;
-  height: 100vh;
-  padding: 30px 25px;
+  flex: 0 0 340px;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 8px;
   background: #d5e6ee;
 }
 
 .listContent {
   display: flex;
-  width: '100%';
-  height: 100%;
+  width: 100%;
+  min-height: 0;
   flex-direction: column;
   gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.rafflePanelContainer {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 14px;
+  margin: 0 40px;
+}
+
+.rafflePanel {
+  display: flex;
+  min-height: 320px;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 24px;
+  border: 1px solid #bfd4e2;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(36, 55, 70, 0.12);
+  text-align: center;
+}
+
+.rafflePanel p {
+  margin: 0;
+  color: #52616f;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.raffleButton {
+  align-self: flex-end;
+  min-width: 120px;
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .mainConainer {
+    flex-direction: column;
+  }
+
+  .listContainer {
+    width: 100%;
+    flex: none;
+  }
+
+  .rafflePanelContainer {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .rafflePanel {
+    min-height: 220px;
+  }
 }
