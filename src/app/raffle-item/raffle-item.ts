@@ -7,5 +7,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './raffle-item.css',
 })
 export class RaffleItem {
-  raffleItem = input.required()
+  raffleItem = input.required<string>();
 }

@@ -12,6 +12,7 @@ describe('RaffleItem', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(RaffleItem);
+    fixture.componentRef.setInput('raffleItem', 'Teste');
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

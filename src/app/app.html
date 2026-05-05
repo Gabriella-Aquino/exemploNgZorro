@@ -1,12 +1,10 @@
 <main class="mainConainer">
   <div class="listContainer">
     <div class="listContent">
-      <li>nskladjasklsda</li>
-      <li>nskladjasklsda</li>
-      <li>nskladjasklsda</li>
-      <li>nskladjasklsda</li>
-      <li>nskladjasklsda</li>
+      @for (item of raffleItems(); track item) {
+        <app-raffle-item [raffleItem]="item"></app-raffle-item>
+      }
     </div>
-    <app-input [(value)]="appValue"></app-input>
+    <app-input [(value)]="appValue" (submit)="addRaffleItem()"></app-input>
   </div>
 </main>

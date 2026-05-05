@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, model, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 
@@ -10,4 +10,5 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 })
 export class Input {
   value = model('');
+  submit = output<void>();
 }
