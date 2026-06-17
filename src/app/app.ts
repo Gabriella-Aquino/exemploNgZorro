@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { Input } from './input/input';
 import { RaffleItem } from './raffle-item/raffle-item';
+import { NgmMotionDirective } from '@scripttype/ng-motion';
 
 @Component({
   selector: 'app-root',
-  imports: [NzButtonModule, Input, RaffleItem],
+  imports: [NzButtonModule, Input, RaffleItem, NgmMotionDirective],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,5 +1,8 @@
 <input
   nz-input
+  ngmMotion
+  [initial]="{ opacity: 0, y: 20 }"
+  [animate]="{ opacity: 1, y: 0 }"
   placeholder="Digite um item para o sorteio"
   [ngModel]="value()"
   (ngModelChange)="value.set($event)"

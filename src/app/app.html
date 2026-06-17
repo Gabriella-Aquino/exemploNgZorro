@@ -14,6 +14,10 @@
     </div>
 
     <button
+      ngmMotion
+      [whileTap]="{scale: 0.5}"
+      [whileHover]="{scale:1.1}"
+      [transition]="{type:'spring', stiffness:400}"
       nz-button
       nzType="primary"
       class="raffleButton"
