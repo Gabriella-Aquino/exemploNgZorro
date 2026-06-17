@@ -26,3 +26,34 @@ li:hover {
   box-shadow: 0 4px 14px rgba(36, 55, 70, 0.14);
   transform: translateY(-1px);
 }
+
+.item-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #8baabb;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.remove-btn:hover {
+  background: #fde8e8;
+  color: #d94f4f;
+}

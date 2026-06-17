@@ -1,8 +1,12 @@
 <main class="mainConainer">
   <div class="listContainer">
     <div class="listContent">
-      @for (item of raffleItems(); track item) {
-        <app-raffle-item [raffleItem]="item"></app-raffle-item>
+      @for (item of raffleItems(); track item.id) {
+        <app-raffle-item
+          *ngmPresence="isPresent(item.id)"
+          [raffleItem]="item.name"
+          (remove)="removeRaffleItem(item.id)"
+        ></app-raffle-item>
       }
     </div>
     <app-input [(value)]="appValue" (submit)="addRaffleItem()"></app-input>
@@ -21,7 +25,7 @@
       nz-button
       nzType="primary"
       class="raffleButton"
-      [disabled]="!raffleItems().length"
+      [disabled]="!activeItems().length"
       (click)="drawRaffleItem()"
     >
       Sortear

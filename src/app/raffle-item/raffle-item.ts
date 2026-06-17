@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { NgmMotionDirective } from '@scripttype/ng-motion';
 
 
@@ -10,4 +10,5 @@ import { NgmMotionDirective } from '@scripttype/ng-motion';
 })
 export class RaffleItem {
   raffleItem = input.required<string>();
+  remove = output<void>();
 }
