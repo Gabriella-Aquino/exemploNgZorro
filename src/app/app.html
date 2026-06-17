@@ -3,7 +3,11 @@
     <div class="listContent">
       @for (item of raffleItems(); track item.id) {
         <app-raffle-item
-          *ngmPresence="isPresent(item.id)"
+          ngmMotion
+          [initial]="{ opacity: 0, y: 32 }"
+          [animate]="{ opacity: 1, y: 0 }"
+          [exit]="{ opacity: 0, x: -60, height: 0, marginBottom: 0 }"
+          [transition]="{ type: 'spring', stiffness: 300, damping: 25 }"
           [raffleItem]="item.name"
           (remove)="removeRaffleItem(item.id)"
         ></app-raffle-item>
@@ -19,13 +23,13 @@
 
     <button
       ngmMotion
-      [whileTap]="{scale: 0.5}"
-      [whileHover]="{scale:1.1}"
-      [transition]="{type:'spring', stiffness:400}"
+      [whileTap]="{ scale: 0.5 }"
+      [whileHover]="{ scale: 1.1 }"
+      [transition]="{ type: 'spring', stiffness: 400 }"
       nz-button
       nzType="primary"
       class="raffleButton"
-      [disabled]="!activeItems().length"
+      [disabled]="!raffleItems().length"
       (click)="drawRaffleItem()"
     >
       Sortear

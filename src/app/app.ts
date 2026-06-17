@@ -1,8 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { Input } from './input/input';
 import { RaffleItem } from './raffle-item/raffle-item';
-import { NgmMotionDirective, NgmPresenceDirective } from '@scripttype/ng-motion';
+import { NgmMotionDirective } from '@scripttype/ng-motion';
 
 interface RaffleItemData {
   id: number;
@@ -11,7 +11,7 @@ interface RaffleItemData {
 
 @Component({
   selector: 'app-root',
-  imports: [NzButtonModule, Input, RaffleItem, NgmMotionDirective, NgmPresenceDirective],
+  imports: [NzButtonModule, Input, RaffleItem, NgmMotionDirective],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -19,11 +19,7 @@ export class App {
   protected readonly title = signal('testeNgZorro');
   protected readonly appValue = signal('');
   protected readonly raffleItems = signal<RaffleItemData[]>([]);
-  protected readonly removingIds = signal<Set<number>>(new Set());
   protected readonly selectedRaffleItem = signal('');
-  protected readonly activeItems = computed(() =>
-    this.raffleItems().filter(i => !this.removingIds().has(i.id))
-  );
 
   private nextId = 0;
 
@@ -39,23 +35,11 @@ export class App {
   }
 
   protected removeRaffleItem(id: number): void {
-    this.removingIds.update(set => new Set([...set, id]));
-    setTimeout(() => {
-      this.raffleItems.update(items => items.filter(i => i.id !== id));
-      this.removingIds.update(set => {
-        const next = new Set(set);
-        next.delete(id);
-        return next;
-      });
-    }, 400);
-  }
-
-  protected isPresent(id: number): boolean {
-    return !this.removingIds().has(id);
+    this.raffleItems.update(items => items.filter(i => i.id !== id));
   }
 
   protected drawRaffleItem(): void {
-    const items = this.activeItems();
+    const items = this.raffleItems();
 
     if (!items.length) {
       return;
